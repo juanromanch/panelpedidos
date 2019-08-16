@@ -1,0 +1,25 @@
+# config/packages/easy_admin.yaml
+
+# Ver https://www.strangebuzz.com/en/snippets/use-a-custom-query-builder-in-yaml-with-the-easyadmin-bundle-to-configure-entities-widgets para filtrar clientes por representante o pedidos por representante o lineas de pedidos por cabeceras de pedidos
+easy_admin:
+  site_name: 'GIDIEN'
+  formats:
+    date: 'd/m/Y'
+  design:
+    assets:
+      css:
+        - 'bundles/easyadmin/bootstrap-all.css'
+      js:
+        # By default, EasyAdminBundle embeds a limited version of Bootstrap JS.
+        # For collapsible form filters to work, a full version should be added:
+        - 'bundles/easyadmin/bootstrap-all.js'
+    menu:
+      - { entity: 'User', label: 'Representantes', icon: 'suitcase-rolling', permission: 'ROLE_ADMIN'}
+      - { entity: 'Clientes', label: 'Clientes', icon: 'address-book'}
+      - { entity: 'Articulo', label: 'Articulos', icon: 'gem'}
+      - { entity: 'CabePedV', label: 'Pedidos', icon: 'file-invoice-dollar'}
+      - { entity: 'LinePedi', label: 'Lineas de Pedidos', icon: 'file-invoice-dollar'}
+  list:
+    actions:
+      - { name: 'search', label: 'Introduce el término a buscar'}
+      - { name: 'new', label: 'Nuevo'}

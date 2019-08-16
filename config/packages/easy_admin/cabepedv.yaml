@@ -1,0 +1,26 @@
+# Ver https://www.strangebuzz.com/en/snippets/use-a-custom-query-builder-in-yaml-with-the-easyadmin-bundle-to-configure-entities-widgets para filtrar clientes por representante o pedidos por representante o lineas de pedidos por cabeceras de pedidos
+easy_admin:
+  entities:
+    CabePedV:
+      class: App\Entity\Cabepedv
+      label: 'Pedidos'
+      form:
+        fields:
+          - { type: group, label: Cabecera del pedido, css_class: 'col-sm-12' }
+          - { property: representante, label: 'Representante' }
+          - { property: cliente, label: 'Cliente' }
+          - { property: fecha, label: 'Fecha', type_options: { widget: 'single_text', required: true } }
+          #- { type: group, label: Detalle del pedido, css_class: 'col-sm-12' }
+          #- { property: lineasdepedido, label: '', type: embedded_list }
+      list:
+        fields:
+          - { property: representante, label: 'Representante', sortable: true }
+          #- { property: 'Codrep', type: 'entity', type-options: { class: 'App\Entity\Represen', required: true, multiple: false, query_builder: 'App\Repository\CabepedvRepository::encuentraPedidosPorRepresentante' }, css_class: 'col-sm-6' }
+          - { property: cliente, label: 'Cliente', sortable: true }
+          - { property: fecha, label: 'Fecha', type: 'date', sortable: true }
+      new:
+        fields:
+          - { property: representante, label: 'Representante', type: 'easyadmin_autocomplete', type_options: { required: true} }
+          - { property: cliente, label: 'Cliente', type: 'easyadmin_autocomplete', type_options: { required: true} }
+          - { property: fecha, label: 'Fecha', type_options: { widget: 'single_text', required: true } }
+          - { property: observaciones, label: 'Observaciones', type_options: { required: false} }

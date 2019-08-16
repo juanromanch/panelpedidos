@@ -1,0 +1,17 @@
+easy_admin:
+  entities:
+    LinePedi:
+      class: App\Entity\Linepedi
+      label: 'Líneas de Pedido'
+      list:
+        fields:
+          - { property: id, label: 'Identificador', sortable: false }
+          - { property: pedido, label: 'Pedido', sortable: true }
+          - { property: articulo, label: 'Artículo', sortable: false }
+          - { property: unidades, label: 'Unidades', sortable: false }
+      new:
+        fields:
+          #- { property: id, label: 'Identificador', type_options: { required: true} }
+          - { property: pedido, label: 'Pedido', type_options: { required: true} }
+          - { property: articulo, label: 'Artículo', type_options: { required: true} }
+          - { property: unidades, label: 'Unidades', type_options: { required: true} }

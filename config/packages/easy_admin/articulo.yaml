@@ -1,0 +1,21 @@
+# Ver https://www.strangebuzz.com/en/snippets/use-a-custom-query-builder-in-yaml-with-the-easyadmin-bundle-to-configure-entities-widgets para filtrar clientes por representante o pedidos por representante o lineas de pedidos por cabeceras de pedidos
+easy_admin:
+  entities:
+    Articulo:
+      class: App\Entity\Articulo
+      label: 'Articulos'
+      list:
+        fields:
+          - { property: codalt, label: 'Código EAN13', sortable: false }
+          - { property: codart, label: 'Código en Nexus', sortable: true }
+          - { property: descart, label: 'Descripción', sortable: false }
+          - { property: prcventa, label: 'Precio', sortable: false }
+          - { property: activo, label: 'Activo?', sortable: true }
+      new:
+        fields:
+          # ...
+          - { property: codalt, label: 'Código EAN13', type_options: { required: true} }
+          - { property: codart, label: 'Código en Nexus', type: 'text', type_options: { required: true} }
+          - { property: descart, label: 'Descripción', type: 'text', type_options: { required: true} }
+          - { property: prcventa, label: 'Precio', type: 'text', type_options: { required: true} }
+          - { property: activo, label: 'Activo?' }
