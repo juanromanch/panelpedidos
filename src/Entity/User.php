@@ -21,6 +21,8 @@ class User extends BaseUser
     {
         parent::__construct();
         // your own logic
+        // Inicializamos ciertas variables
         $this->enabled = true;
+        $this->roles = [ 'ROLE_USER'];
     }
 }
