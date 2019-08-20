@@ -1,6 +1,6 @@
 easy_admin:
   entities:
-    LinePedi:
+    Linepedi:
       class: App\Entity\Linepedi
       label: 'Líneas de Pedido'
       list:

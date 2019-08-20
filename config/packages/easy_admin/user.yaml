@@ -11,21 +11,22 @@ easy_admin:
           - { property: 'enabled', label: '¿Activo?' }
           #- lastLogin
           # if administrators are allowed to edit users' passwords and roles, add this:
-          - { property: 'roles', label: 'Perfil', type: 'choice', type_options: { multiple: true, choices: { 'Representante': 'ROLE_USER', 'Administrador': 'ROLE_ADMIN' } } }
+          - { property: 'roles', label: 'Perfil', type: 'choice', type_options: { multiple: true, choices: { 'Representante': 'ROLE_ADMIN', 'Administrador': 'ROLE_SUPER_ADMIN' } } }
       new:
         fields:
           - { property: 'username', label: 'Usuario (NIF en NEXUS)' }
+          - { property: 'plainPassword', label: 'Contraseña (ALIAS en NEXUS)', type: 'text', type_options: { required: true } }
+          - { property: 'codrep', label: 'Código en NEXUS', type: 'text', type_options: { required: true } }
           - { property: 'email', label: 'Correo electrónico' }
           - { property: 'nomrep', label: 'Nombre' }
-          - { property: 'plainPassword', label: 'Contraseña (ALIAS en NEXUS)', type: 'text', type_options: { required: true } }
-          - { property: 'roles', label: 'Perfil', type: 'choice', type_options: { multiple: true, choices: { 'Representante': 'ROLE_USER', 'Administrador': 'ROLE_ADMIN' } } }
+          - { property: 'roles', label: 'Perfil', type: 'choice', type_options: { multiple: true, choices: { 'Representante': 'ROLE_ADMIN', 'Administrador': 'ROLE_SUPER_ADMIN' } } }
       edit:
         fields:
           - { property: 'username', label: 'Usuario (NIF en NEXUS)' }
           - { property: 'email', label: 'Correo electrónico' }
           - { property: 'nomrep', label: 'Nombre' }
           - { property: 'enabled', label: '¿Activo?' }
-          - { property: 'roles', label: 'Perfil', type: 'choice', type_options: { multiple: true, choices: { 'Representante': 'ROLE_USER', 'Administrador': 'ROLE_ADMIN' } } }
+          - { property: 'roles', label: 'Perfil', type: 'choice', type_options: { multiple: true, choices: { 'Representante': 'ROLE_ADMIN', 'Administrador': 'ROLE_SUPER_ADMIN' } } }
       list:
         fields:
           - { property: 'username', label: 'Usuario (NIF en NEXUS)' }

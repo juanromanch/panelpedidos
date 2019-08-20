@@ -14,11 +14,11 @@ easy_admin:
         # For collapsible form filters to work, a full version should be added:
         - 'bundles/easyadmin/bootstrap-all.js'
     menu:
-      - { entity: 'User', label: 'Representantes', icon: 'suitcase-rolling', permission: 'ROLE_ADMIN'}
-      - { entity: 'Clientes', label: 'Clientes', icon: 'address-book'}
-      - { entity: 'Articulo', label: 'Articulos', icon: 'gem'}
-      - { entity: 'CabePedV', label: 'Pedidos', icon: 'file-invoice-dollar'}
-      - { entity: 'LinePedi', label: 'Lineas de Pedidos', icon: 'file-invoice-dollar'}
+      - { entity: 'User', label: 'Representantes', icon: 'suitcase-rolling', permission: 'ROLE_SUPER_ADMIN' }
+      - { entity: 'Clientes', label: 'Clientes', icon: 'address-book', permission: 'ROLE_SUPER_ADMIN' }
+      - { entity: 'Articulo', label: 'Articulos', icon: 'gem', permission: 'ROLE_SUPER_ADMIN' }
+      - { entity: 'Cabepedv', label: 'Pedidos', icon: 'file-invoice-dollar', default: true }
+      - { entity: 'Linepedi', label: 'Lineas de Pedidos', icon: 'file-invoice-dollar' }
   list:
     actions:
       - { name: 'search', label: 'Introduce el término a buscar'}

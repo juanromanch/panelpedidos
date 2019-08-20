@@ -70,7 +70,7 @@ class User extends BaseUser
         // your own logic
         // Inicializamos ciertas variables
         $this->enabled = true;
-        $this->roles = [ 'ROLE_USER'];
+        $this->roles = [ 'ROLE_ADMIN'];
         $this->clientes = new ArrayCollection();
         $this->pedidos = new ArrayCollection();
     }
@@ -135,5 +135,10 @@ class User extends BaseUser
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+      return $this->getNomrep();
     }
 }
