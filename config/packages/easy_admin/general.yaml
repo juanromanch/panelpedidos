@@ -2,7 +2,7 @@
 
 # Ver https://www.strangebuzz.com/en/snippets/use-a-custom-query-builder-in-yaml-with-the-easyadmin-bundle-to-configure-entities-widgets para filtrar clientes por representante o pedidos por representante o lineas de pedidos por cabeceras de pedidos
 easy_admin:
-  site_name: 'GIDIEN'
+  site_name: 'GAE LINE trends'
   formats:
     date: 'd/m/Y'
   design:

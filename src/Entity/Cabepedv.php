@@ -69,7 +69,7 @@ class Cabepedv
     // Al instanciar la clase, ponemos como fecha la actual en los formularios.
     public function __construct()
     {
-        $this->Fecha = new \DateTime('now');
+        $this->fecha = new \DateTime('now');
         $this->lineas = new ArrayCollection();
     }
 
@@ -131,5 +131,10 @@ class Cabepedv
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getCliente()->getNomcli();
     }
 }

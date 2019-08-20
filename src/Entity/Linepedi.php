@@ -71,4 +71,12 @@ class Linepedi
         return $this;
     }
 
+
+    public function __construct()
+    {
+        // your own logic
+        // Inicializamos ciertas variables
+        $this->unidades = 1;
+    }
+
 }

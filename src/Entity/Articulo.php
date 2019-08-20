@@ -150,4 +150,9 @@ class Articulo
 
         return $this;
     }
+
+    public function __toString()
+    {
+      return $this->getDecart();
+    }
 }
