@@ -35,6 +35,22 @@ class ClientesRepository extends ServiceEntityRepository
         ;
     }
     */
+     /**
+      * @return Clientes[] Returns an array of Clientes objects
+      */
+
+    public function findByRepresentanteField($value)
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.representante = :val')
+            ->setParameter('val', $value)
+            ->orderBy('c.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 
     /*
     public function findOneBySomeField($value): ?Clientes
@@ -47,4 +63,5 @@ class ClientesRepository extends ServiceEntityRepository
         ;
     }
     */
+
 }

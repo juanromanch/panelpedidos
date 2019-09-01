@@ -12,6 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
+
+    const ROLE_DEFAULT = 'ROLE_ADMIN';
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -140,5 +143,10 @@ class User extends BaseUser
     public function __toString()
     {
       return $this->getNomrep();
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 }

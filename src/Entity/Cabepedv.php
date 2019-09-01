@@ -135,6 +135,6 @@ class Cabepedv
 
     public function __toString()
     {
-        return $this->getCliente()->getNomcli();
+        return $this->getFecha()->format('d/m/Y') . ' - ' . $this->getCliente();
     }
 }
