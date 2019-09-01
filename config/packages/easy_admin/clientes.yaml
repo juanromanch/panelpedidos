@@ -3,22 +3,34 @@ easy_admin:
   entities:
     Clientes:
       class: App\Entity\Clientes
+      controller: App\Controller\Model\ClientesController
+      label: Clientes
+      form:
+        fields:
+          - { property: codcli, label: 'Código', permission: ROLE_SUPER_ADMIN }
+          - { property: nomcli, label: 'Nombre' }
+          - { property: dircli, label: 'Dirección' }
+          - { property: pobcli, label: 'Población' }
+          - { property: activo, label: 'Activo?', permission: ROLE_SUPER_ADMIN }
+          - { property: representante, label: 'Representante', permission: ROLE_SUPER_ADMIN  }
+
       list:
-        label: 'Listado de Clientes'
         fields:
-          
-          - { property: codcli, label: 'Código en Nexus', sortable: true }
-          - { property: nomcli, label: 'Nombre del Cliente', sortable: true }
-          - { property: dircli, label: 'Dirección', sortable: true }
+          - { property: codcli, label: 'Código', sortable: TRUE }
+          - { property: nomcli, label: 'Nombre', sortable: true }
+          - { property: dircli, label: 'Dirección', sortable: false }
           - { property: pobcli, label: 'Población', sortable: true }
-          - { property: activo, label: 'Activo?', sortable: true }
-          - { property: representante, label: 'Representante', sortable: true }
+          - { property: activo, label: 'Activo?', sortable: true, permission: ROLE_SUPER_ADMIN }
+          - { property: representante, label: 'Representante', sortable: true, permission: ROLE_SUPER_ADMIN  }
       new:
-        label: 'Nuevo Cliente'
-        fields:
-          - { property: codcli, label: 'Código en Nexus', type_options: { required: true} }
-          - { property: nomcli, label: 'Nombre del Cliente', type_options: { required: true} }
-          - { property: dircli, label: 'Dirección', type_options: { required: true} }
-          - { property: pobcli, label: 'Población', type_options: { required: true} }
-          - { property: activo, label: 'Activo?', type_options: { required: true} }
-          - { property: representante, label: 'Representante', type: 'easyadmin_autocomplete', type_options: { required: true} }
+        item_permission: 'ROLE_SUPER_ADMIN'
+      edit:
+        item_permission: 'ROLE_SUPER_ADMIN'
+#        label: 'Nuevo Cliente'
+#        fields:
+#          - { property: codcli, label: 'Código en Nexus', type_options: { required: true} }
+#          - { property: nomcli, label: 'Nombre del Cliente', type_options: { required: true} }
+#          - { property: dircli, label: 'Dirección', type_options: { required: true} }
+#          - { property: pobcli, label: 'Población', type_options: { required: true} }
+#          - { property: activo, label: 'Activo?', type_options: { required: true} }
+#          - { property: representante, label: 'Representante', type: 'easyadmin_autocomplete', type_options: { required: true} }

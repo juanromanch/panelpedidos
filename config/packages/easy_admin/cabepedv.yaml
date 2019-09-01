@@ -3,27 +3,41 @@ easy_admin:
   entities:
     Cabepedv:
       class: App\Entity\Cabepedv
+      # El controller por defecto no filtra pedidos y clientes por representante. por eso es necesario asignar un controller personalizado
       controller: App\Controller\Model\PedidosController
       label: 'Pedidos'
       form:
         fields:
-          - { type: group, label: Cabecera del pedido, css_class: 'col-sm-6' }
-          - { property: representante, label: 'Representante' }
+##          #- { type: group, label: Cabecera del pedido, css_class: 'col-sm-6' }
+          - { property: representante, label: 'Representante', permission: ROLE_SUPER_ADMIN }
           - { property: cliente, label: 'Cliente' }
           - { property: fecha, label: 'Fecha', type_options: { widget: 'single_text', required: true } }
-          - { type: group, label: Observaciones, css_class: 'col-sm-6' }
+#          # - { type: group, label: Observaciones, css_class: 'col-sm-6' }
           - { property: observaciones, label: 'Observaciones', type_options: { required: false} }
-          - { type: group, label: Detalle del pedido, css_class: 'col-sm-12' }
-          - { property: lineas, label: '', type: embedded_list }
+##          # - { type: group, label: Detalle del pedido, css_class: 'col-sm-12' }
+          - { property: lineas, label: '', type: embedded_list, type_options: { entity: Linepedi, filters: { 'entity.pedido': 'form:parent.data.id' } } }
+#      edit:
+#        fields:
+#          - { type: group, label: Cabecera del pedido, css_class: 'col-sm-6' }
+#          - { property: representante, label: 'Representante' }
+#          - { property: 'representante', type: 'entity', type-options: { class: 'App\Entity\User', required: true, multiple: false' }, css_class: 'col-sm-6' }
+#          #- { property: cliente, label: 'Cliente' }
+#          - { property: 'cliente', type: 'entity', type-options: { class: 'App\Entity\Clientes', required: true, multiple: false' }, css_class: 'col-sm-6' }
+#          - { property: fecha, label: 'Fecha', type_options: { widget: 'single_text', required: true } }
+#          # - { type: group, label: Observaciones, css_class: 'col-sm-6' }
+#          - { property: observaciones, label: 'Observaciones', type_options: { required: false} }
+#          # - { type: group, label: Detalle del pedido, css_class: 'col-sm-12' }
+#          - { property: lineas, label: '', type: embedded_list }
       list:
         fields:
-          - { property: representante, label: 'Representante', sortable: true }
-          #- { property: 'Codrep', type: 'entity', type-options: { class: 'App\Entity\Represen', required: true, multiple: false, query_builder: 'App\Repository\CabepedvRepository::encuentraPedidosPorRepresentante' }, css_class: 'col-sm-6' }
+          - { property: representante, label: 'Representante', sortable: true, permission: ROLE_SUPER_ADMIN }
           - { property: cliente, label: 'Cliente', sortable: true }
           - { property: fecha, label: 'Fecha', type: 'date', sortable: true }
       new:
         fields:
-          - { property: representante, label: 'Representante', type: 'easyadmin_autocomplete', type_options: { required: true} }
-          - { property: cliente, label: 'Cliente', type: 'easyadmin_autocomplete', type_options: { required: true} }
-          - { property: fecha, label: 'Fecha', type_options: { widget: 'single_text', required: true } }
-          - { property: observaciones, label: 'Observaciones', type_options: { required: false} }
+          - '-lineas'
+#          - { property: representante, label: 'Representante', type: 'easyadmin_autocomplete', type_options: { required: true} }
+#          - { property: cliente, label: 'Cliente', type_options: { required: true, multiple: false } }
+#          - { property: cliente, type: entity, type-options: { class: 'App\Entity\Clientes', required: false, multiple: false } }
+#          - { property: fecha, label: 'Fecha', type_options: { widget: 'single_text', required: true } }
+#          - { property: observaciones, label: 'Observaciones', type_options: { required: false} }

@@ -5,19 +5,19 @@ easy_admin:
       label: Representantes
       form:
         fields:
-          - { property: 'username', label: 'Usuario (NIF en NEXUS)' }
+          - { property: 'codrep', label: 'Código en NEXUS' }
           - { property: 'nomrep', label: 'Nombre' }
           - { property: 'email', label: 'Correo electrónico' }
           - { property: 'enabled', label: '¿Activo?' }
-          #- lastLogin
-          # if administrators are allowed to edit users' passwords and roles, add this:
+#          #- lastLogin
+#          # if administrators are allowed to edit users' passwords and roles, add this:
           - { property: 'roles', label: 'Perfil', type: 'choice', type_options: { multiple: true, choices: { 'Representante': 'ROLE_ADMIN', 'Administrador': 'ROLE_SUPER_ADMIN' } } }
       new:
         fields:
           - { property: 'username', label: 'Usuario (NIF en NEXUS)' }
           - { property: 'plainPassword', label: 'Contraseña (ALIAS en NEXUS)', type: 'text', type_options: { required: true } }
-          - { property: 'codrep', label: 'Código en NEXUS', type: 'text', type_options: { required: true } }
           - { property: 'email', label: 'Correo electrónico' }
+          - { property: 'codrep', label: 'Código en NEXUS', type: 'text', type_options: { required: true } }
           - { property: 'nomrep', label: 'Nombre' }
           - { property: 'roles', label: 'Perfil', type: 'choice', type_options: { multiple: true, choices: { 'Representante': 'ROLE_ADMIN', 'Administrador': 'ROLE_SUPER_ADMIN' } } }
       edit:
@@ -29,7 +29,7 @@ easy_admin:
           - { property: 'roles', label: 'Perfil', type: 'choice', type_options: { multiple: true, choices: { 'Representante': 'ROLE_ADMIN', 'Administrador': 'ROLE_SUPER_ADMIN' } } }
       list:
         fields:
-          - { property: 'username', label: 'Usuario (NIF en NEXUS)' }
+          - { property: 'codrep', label: 'Código en NEXUS', sortable: false }
           - { property: 'nomrep', label: 'Nombre' }
-          - { property: 'email', label: 'Correo electrónico' }
+          - { property: 'email', label: 'Correo electrónico', sortable: false }
           - { property: 'enabled', label: '¿Activo?' }

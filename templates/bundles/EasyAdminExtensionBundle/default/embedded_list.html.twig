@@ -1,0 +1,7 @@
+{% extends "@!EasyAdminExtension/default/embedded_list.html.twig" %}
+
+{% block open_new_tab %}
+    <a class="btn btn-info btn-sm open-new-tab" title="Añadir linea" target="_self" href="{{ path('easyadmin', _request_parameters|merge({action: 'new'})) }}">
+        <span>{{ 'Añadir Linea'|trans({}, 'EasyAdminBundle') }}</span>
+    </a>
+{% endblock open_new_tab %}

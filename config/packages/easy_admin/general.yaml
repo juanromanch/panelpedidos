@@ -3,6 +3,10 @@
 # Ver https://www.strangebuzz.com/en/snippets/use-a-custom-query-builder-in-yaml-with-the-easyadmin-bundle-to-configure-entities-widgets para filtrar clientes por representante o pedidos por representante o lineas de pedidos por cabeceras de pedidos
 easy_admin:
   site_name: 'GAE LINE trends'
+  user:
+    display_name: true
+    display_avatar: true
+    name_property_path: 'nomrep'
   formats:
     date: 'd/m/Y'
   design:
@@ -15,10 +19,10 @@ easy_admin:
         - 'bundles/easyadmin/bootstrap-all.js'
     menu:
       - { entity: 'User', label: 'Representantes', icon: 'suitcase-rolling', permission: 'ROLE_SUPER_ADMIN' }
-      - { entity: 'Clientes', label: 'Clientes', icon: 'address-book', permission: 'ROLE_SUPER_ADMIN' }
+      - { entity: 'Clientes', label: 'Clientes', icon: 'address-book' }
       - { entity: 'Articulo', label: 'Articulos', icon: 'gem', permission: 'ROLE_SUPER_ADMIN' }
       - { entity: 'Cabepedv', label: 'Pedidos', icon: 'file-invoice-dollar', default: true }
-      - { entity: 'Linepedi', label: 'Lineas de Pedidos', icon: 'file-invoice-dollar' }
+      #- { entity: 'Linepedi', label: 'Lineas de Pedidos', icon: 'file-invoice-dollar' }
   list:
     actions:
       - { name: 'search', label: 'Introduce el término a buscar'}

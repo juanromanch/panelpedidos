@@ -3,10 +3,18 @@ easy_admin:
     Linepedi:
       class: App\Entity\Linepedi
       label: 'Líneas de Pedido'
+      controller: App\Controller\Model\LineasController
+
+      form:
+        fields:
+          - { property: pedido, label: 'Pedido', sortable: true }
+          - { property: articulo, label: 'Artículo', sortable: false }
+          - { property: unidades, label: 'Unidades', sortable: false }
+
       list:
         fields:
-          - { property: id, label: 'Identificador', sortable: false }
-          - { property: pedido, label: 'Pedido', sortable: true }
+#          #- { property: id, label: 'Identificador', sortable: false }
+          - { property: pedido, label: 'Pedido', sortable: true permission: ROLE_SUPER_ADMIN}
           - { property: articulo, label: 'Artículo', sortable: false }
           - { property: unidades, label: 'Unidades', sortable: false }
       new:
