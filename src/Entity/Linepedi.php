@@ -24,6 +24,7 @@ class Linepedi
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Cabepedv", inversedBy="lineas")
      */
+    // TODO modificar restricción en clave foranea en linepedi.pedido delete y update a cascade en mysql
     private $pedido;
 
     /**

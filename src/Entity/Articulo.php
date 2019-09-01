@@ -153,6 +153,6 @@ class Articulo
 
     public function __toString()
     {
-      return $this->getDescart();
+      return $this->getCodalt() . ' - ' . $this->getDescart();
     }
 }

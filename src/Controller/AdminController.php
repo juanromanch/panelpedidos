@@ -23,4 +23,11 @@ class AdminController extends BaseAdminController
         parent::updateEntity($user);
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function inicio()
+    {
+        return $this->render('admin/index.html.twig');
+    }
 }
